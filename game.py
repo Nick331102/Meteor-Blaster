@@ -16,6 +16,10 @@ ship = pygame.image.load("spaceship.png")
 # create window title
 pygame.display.set_caption("Meteor Dodger")
 
+# calculate the center of the screen
+center_x = screen.get_width()
+center_y = screen.get_height()
+
 # game loop
 while True:
     for event in pygame.event.get():
@@ -24,6 +28,8 @@ while True:
             exit()
 
     screen.blit(surface, (0,0))
+    # display the ship at the center of the screen
+    screen.blit(ship, (900, 360))
     pygame.display.update()
     
     # control the framerate
