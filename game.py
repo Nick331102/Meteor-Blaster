@@ -1,6 +1,28 @@
 import pygame
+from pygame.sprite import Sprite
 
+# Define a class called ShipSprite that inherits from the Sprite class
+class ShipSprite(Sprite):
+    
+    # Define the constructor method for the class
+    def __init__(self, image, x, y):
+        
+        # Call the constructor of the parent class (Sprite)
+        super().__init__()
+        
+        # Store the image of the spaceship in the image attribute
+        self.image = image
+        
+        # Create a rectangle that is the same size as the image
+        self.rect = self.image.get_rect()
+        
+        # Set the x and y position of the rectangle
+        self.rect.x = x
+        self.rect.y = y
+
+        
 pygame.init()
+
 # create display surface
 screen = pygame.display.set_mode((1800, 720), pygame.RESIZABLE)
 # create clock object
