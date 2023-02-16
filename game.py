@@ -48,7 +48,24 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-
+            
+    #update the ships velocity and acceleration based on user input.  
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                ship.accleration.y = -0.1
+            if event.key == pygame.K_DOWN:
+                ship.accleration.y = 0.1
+            if event.key == pygame.K_LEFT:
+                ship.accleration.x = -0.1
+            if event.key == pygame.K_RIGHT:
+                ship.accleration.x = 0.1
+    # ship stops moving when up, down, left, or right key is released
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                ship.acceleration.y = 0
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                ship.acceleration.x = 0     
+                
     screen.blit(surface, (0,0))
     # display the ship at the center of the screen
     screen.blit(ship, (900, 360))
